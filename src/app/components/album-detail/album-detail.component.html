@@ -1,0 +1,24 @@
+<div *ngIf="album">
+  <h5>{{album.title}}</h5>
+
+  <div>
+    <p>Photos: {{photos.length}}</p>
+  </div>
+
+  <div>
+    <a routerLink="/album-edit/{{album.id}}" class="btn btn-primary" role="button">Edit album</a>&nbsp;
+    <a routerLink="/photo-edit/" class="btn btn-success" role="button">Add photo</a>&nbsp;
+    <button type=button class="btn btn-warning"  (click)="deleteAlbum(album.title)">Delete</button>
+  </div>
+</div>
+
+<hr>
+
+<div *ngFor="let photo of photos">
+  <app-photo-detail
+   [id]="photo.id"
+  ></app-photo-detail>
+  <hr>
+</div>
+
+<app-error-message [errorList]="errorList"></app-error-message>

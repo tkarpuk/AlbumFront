@@ -1,0 +1,12 @@
+<div *ngIf="photo">
+  <h6>{{photo.title}}</h6>
+  <div>
+    <a routerLink="/photo-edit/{{photo.id}}" class="btn btn-success" role="button">Edit photo's data</a>&nbsp;
+    <button type=button class="btn btn-warning"  (click)="deletePhoto(photo.title)">Delete</button>
+  </div>
+  <hr>
+
+  <img [src]="photo.url" [alt]="photo.title">
+</div>
+
+<app-error-message [errorList]="errorList"></app-error-message>

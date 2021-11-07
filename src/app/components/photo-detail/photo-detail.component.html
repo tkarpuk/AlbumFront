@@ -1,0 +1,6 @@
+<a *ngIf="photo" routerLink="/photos/{{photo.id}}">
+  <h6>{{photo.title}}</h6>
+  <img [src]="photo.thumbnailUrl" [alt]="photo.title">
+</a>
+
+<app-error-message [errorList]="errorList"></app-error-message>

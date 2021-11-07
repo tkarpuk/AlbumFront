@@ -1,0 +1,8 @@
+<p>albums works!</p>
+<ul class="heroes">
+  <li *ngFor="let album of albums">
+    <a routerLink="/albums/{{album.id}}">{{album.title}}</a>
+  </li>
+</ul>
+
+<app-error-message [errorList]="errorList"></app-error-message>

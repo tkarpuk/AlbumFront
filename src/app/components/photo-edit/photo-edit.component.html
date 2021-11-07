@@ -1,0 +1,33 @@
+<h4>{{customTitle}}</h4>
+<div style="width: 600px;">
+  <form>
+    <div class="form-group">
+      <label>Photo title</label>
+      <input type="text" class="form-control"
+             id="title" name="title"
+             required
+             [(ngModel)]="photo.title">
+    </div>
+    <div class="form-group">
+      <label>User Id</label>
+      <input type="number" class="form-control"
+        id="userId" name="userId"
+        required
+        [(ngModel)]="photo.albumId">
+    </div>
+    <div class="form-group">
+      <div *ngIf="photo.id <= 0; else showPhoto">
+        <input type="file">
+      </div>
+      <ng-template #showPhoto>
+      <img [src]="photo.url" [alt]="photo.title">
+      </ng-template>
+    </div>
+    <div class="form-group">
+      <button type=button class="btn btn-success" (click)="savePhoto()">Save</button>&nbsp;
+      <button type=button class="btn btn-secondary" (click)="cancelClicked()">Cancel</button>
+    </div>
+  </form>
+</div>
+<app-error-message [errorList]="errorList"></app-error-message>
+
